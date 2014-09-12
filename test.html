@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JSON File 0</h2>
+<!I probably could have made a function and called it three times instead of typing/ copypasting this three times... in hindsight...>
+<p id = "text"></p>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type = "text/javascript">
+
+$.ajax({
+                    url: "http://www.w3.org/People/Sandro/todo-samples/0.json",
+                    
+                    dataType: "text",
+                    success: function(data) {
+                        
+                        
+                        var json = $.parseJSON(data);
+                        
+                        
+                        var items = json.items;
+                        for(i = 0; i<items.length; i++)
+                       	{
+                       		if(items[i].description != 'undefined')
+                       		{
+                       			$("div").append('Description: ' + json.items[i].description + '<br />Done: ' + json.items[i].done + '<br />');
+                       		}
+                       		
+                       	}
+                       	
+                        
+
+                    }
+                });
+
+
+
+</script>
+<div>
+</div>
+<p>
+</p>
+
+<script type = "text/javascript">
+
+$.ajax({
+                    url: "http://www.w3.org/People/Sandro/todo-samples/1.json",
+                    
+                    dataType: "text",
+                    success: function(data) {
+                        //alert('got here');
+                        
+                        var json = $.parseJSON(data);
+                        
+                        var items = json.items;
+                        $("div").append("<h2>JSON File 1</h2>"); //there is definitely a way to make this less... clunky, but this works...
+                        for(i = 0; i<items.length; i++)
+                       	{
+                       		if(items[i].description != 'undefined')
+                       		{
+                       			$("div").append('Description: ' + json.items[i].description + '<br />Done: ' + json.items[i].done + '<br />');
+                       		}
+                       		
+                       	}
+                       	
+                        
+
+                    }
+                });
+
+$.ajax({
+                    url: "http://www.w3.org/People/Sandro/todo-samples/2.json",
+                    
+                    dataType: "text",
+                    success: function(data) {
+                        
+                       
+                        var json = $.parseJSON(data);
+                      
+                        var items = json.items;
+                        $("div").append("<h2>JSON File 2</h2>"); 
+                        for(i = 0; i<items.length; i++)
+                       	{
+                       		
+                       			$("div").append('Description: ' + json.items[i].description + '<br />Done: ' + json.items[i].done + '<br />');
+                       		
+                       		
+                       	}
+                       	
+                        
+
+                    }
+                });
+</script>
+</body>
+</html>
